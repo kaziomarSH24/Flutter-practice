@@ -52,6 +52,7 @@ class Screen2 extends StatelessWidget {
                   },
                 ),
                 ListTile(
+                  tileColor: Colors.green[100],
                   leading: Icon(Icons.logout),
                   title: Text("Logout"),
                   onTap: () {
@@ -86,9 +87,81 @@ class Screen2 extends StatelessWidget {
                 ),
               ),
             ),
+          TextButton(onPressed: (){
+            alertDialog(context);
+          }, child: Text("button 2")),
+          OutlinedButton(onPressed: (){
+            DialogBox(context);
+          }, child: Text("outlined button")),
+
+        InkWell(
+          splashColor: Colors.red[200],
+          onTap: (){
+           alertDialog(context);
+          },
+          child: Card(
+            color: Colors.green[300],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Hello"),
+            ),
+          ),
+        ),
+          
           ],
         ),
       ),
     );
   }
 }
+
+DialogBox(BuildContext context) {
+  showDialog(context: context, builder: (context){
+     return Dialog(
+      child: Container(
+        padding: EdgeInsets.all(20),
+        height: 200,
+        width: 300,
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("this is a dialog box", style: TextStyle(color: Colors.green, fontSize: 18, fontWeight: FontWeight.bold),),
+          SizedBox(height: 20),
+          ElevatedButton(onPressed: (){
+            Navigator.pop(context);
+          }, 
+          child: Text("Close")),
+          ],
+        )
+      ),
+     );
+      
+  });
+}
+
+alertDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: Text("Alert Dialog"),
+        content: Text("This is an alert dialog box."),
+        actions: [
+          OutlinedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text("Yes"),
+          ),
+          OutlinedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text("No"),
+          ),
+        ],
+      );
+    },
+  );
+}
+
