@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:login_page/screen2.dart';
+import 'package:login_page/app/app.dart';
 
 void main(List<String> args) {
   runApp(
@@ -8,22 +8,4 @@ void main(List<String> args) {
   );
 }
 
-class myFirstApp extends StatelessWidget {
-  const myFirstApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Screen2(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold();
-  }
-}
